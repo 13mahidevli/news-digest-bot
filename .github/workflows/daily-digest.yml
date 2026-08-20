@@ -3,7 +3,7 @@ name: Daily News Digest
 on:
   schedule:
     # Runs at 7:00 AM UTC every day — adjust the hour to your timezone preference
-    - cron: "30 11 * * *"
+        - cron: '42 11 * * *'
   workflow_dispatch: # allows manually triggering a run from the GitHub Actions tab
 
 jobs:
