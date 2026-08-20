@@ -1,0 +1,8 @@
+[33mcommit c0da2525b3ae60799af66ba0979d70c1184dcf94[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: 13mahidevli <13mahidevli@gmail.com>
+Date:   Thu Aug 20 16:50:47 2026 +0530
+
+    Adjust digest schedule to 5 PM IST
+
+ .github/workflows/daily-digesT.YML | 32 [32m++++++++++++++++++++++++++++++++[m
+ 1 file changed, 32 insertions(+)
