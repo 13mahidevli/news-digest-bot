@@ -1,0 +1,32 @@
+name: Daily News Digest
+
+on:
+  schedule:
+    # Runs at 7:00 AM UTC every day — adjust the hour to your timezone preference
+    - cron: "30 11 * * *"
+  workflow_dispatch: # allows manually triggering a run from the GitHub Actions tab
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser trafilatura google-genai python-dotenv
+
+      - name: Run digest script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+        run: python send_digest.py
